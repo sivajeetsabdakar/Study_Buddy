@@ -19,7 +19,7 @@ def get_gemini_response(input, image):
     return response.text
 
 # Streamlit page configuration
-st.set_page_config(page_title="AI Image Chatbot")
+st.set_page_config(page_title="Study Buddy by Class Buddy")
 
 st.header("I'm your study buddy :)")
 
@@ -28,7 +28,7 @@ if 'history' not in st.session_state:
     st.session_state['history'] = []
 
 # Input field for text and file upload for image
-input = st.text_input("What is your doubt?: ", key="input")
+input = st.text_input("What's your doubt?: ", key="input")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 # Initialize image variable

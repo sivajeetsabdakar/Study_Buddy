@@ -19,7 +19,7 @@ def get_gemini_response(input, image):
     return response.text
 
 # Streamlit page configuration
-st.set_page_config(page_title="Study Buddy by Class Buddy")
+st.set_page_config(page_title="AI Image Chatbot")
 
 st.header("I'm your study buddy :)")
 
@@ -28,7 +28,7 @@ if 'history' not in st.session_state:
     st.session_state['history'] = []
 
 # Input field for text and file upload for image
-input = st.text_input("What's your doubt?: ", key="input")
+input = st.text_input("What is your doubt?: ", key="input")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 # Initialize image variable
@@ -37,8 +37,20 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
 
+# Create two side-by-side columns for "Send" button and "Chat History" dropdown
+col1, col2 = st.columns([3, 1])
+
 # Submit button
-submit = st.button("Send")
+with col1:
+    submit = st.button("Send")
+
+# Chat history dropdown (expander)
+with col2:
+    with st.expander("Chat History"):
+        if st.session_state['history']:
+            for chat in st.session_state['history']:
+                st.write(f"**You**: {chat['input']}")
+                st.write(f"**StudyBuddy**: {chat['response']}")
 
 # When the submit button is clicked
 if submit:
@@ -53,10 +65,3 @@ if submit:
     # Display the response
     st.subheader("The Response is")
     st.write(response)
-
-# Display chat history
-if st.session_state['history']:
-    st.subheader("Chat History")
-    for chat in st.session_state['history']:
-        st.write(f"**You**: {chat['input']}")
-        st.write(f"**StudyBuddy**: {chat['response']}")

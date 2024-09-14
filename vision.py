@@ -43,9 +43,9 @@ with col2:
             for chat in st.session_state['history']:
                 st.write(f"**You**: {chat['input']}")
                 st.write(f"**StudyBuddy**: {chat['response']}")
-
-if st.button("Clear History"):
-    st.session_state['history'] = []
+with col2:
+    if st.button("Clear History"):
+        st.session_state['history'] = []
 
 if submit:
     response = get_gemini_response(input, image)

@@ -19,7 +19,7 @@ def get_gemini_response(input, image):
 
 st.set_page_config(page_title="AI Image Chatbot")
 
-st.header("I'm your non-blind study buddy :)")
+st.header("I'm your study buddy :)")
 
 if 'history' not in st.session_state:
     st.session_state['history'] = []

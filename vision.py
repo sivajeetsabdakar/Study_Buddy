@@ -26,8 +26,8 @@ def get_gemini_response(input, image):
 
 st.set_page_config(page_title="AI Image Chatbot")
 
-st.header("I'm your friend")
-input = st.text_input("Input Prompt: ", key="input")
+st.header("I'm your study buddy :)")
+input = st.text_input("What is your doubt?: ", key="input")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 image = ""
 if uploaded_file is not None:

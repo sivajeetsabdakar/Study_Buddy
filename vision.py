@@ -19,7 +19,7 @@ def get_gemini_response(input, image):
 
 st.set_page_config(page_title="Image Buddy")
 
-st.header("I'm your study buddy, the one with the vision ;)")
+st.header("I'm your study buddy, the one with the vision 👀")
 
 if 'history' not in st.session_state:
     st.session_state['history'] = []

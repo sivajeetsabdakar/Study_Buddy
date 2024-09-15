@@ -32,7 +32,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
 
-col1, col2 = st.columns([3, 1])
+col1, col2 = st.columns([2, 2])  # Changed column width to make them equal
 
 with col1:
     submit = st.button("Send")
@@ -43,8 +43,7 @@ with col2:
             for chat in st.session_state['history']:
                 st.write(f"**You**: {chat['input']}")
                 st.write(f"**StudyBuddy**: {chat['response']}")
-with col2:
-    if st.button("Clear History"):
+    if st.button("Clear History"):  # Moved this inside the same column
         st.session_state['history'] = []
 
 if submit:

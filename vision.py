@@ -17,7 +17,7 @@ def get_gemini_response(input, image):
         response = model.generate_content(image)
     return response.text
 
-st.set_page_config(page_title="Image Buddy")
+st.set_page_config(page_title="Vision Buddy")
 
 st.header("I'm your study buddy, the one with the vision 👀")
 
